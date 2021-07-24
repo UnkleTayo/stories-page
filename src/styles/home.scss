@@ -1,75 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Bentham&display=swap');
-
-$bg-color: #000;
+@import url('https://fonts.googleapis.com/css?family=Oswald:300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
 body {
-  font-family: 'Bentham', sans-serif;
-
-  background-color: $bg-color;
-  cursor: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Ubuntu, 'Helvetica Neue', sans-serif;
 }
 
-.main-container {
-  padding: 0 6.597vw;
-  z-index: 99;
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
 }
 
-.title-container {
-  position: relative;
-  display: block;
-  padding-top: 37.77vh;
-  padding-top: calc(var(5.6px, 1vh) * 37.77);
-  padding-bottom: 10vh;
-  padding-bottom: calc(var(5.6px, 1vh) * 10);
+.feature-slides-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  h1 {
-    display: block;
-    font-size: 7vw;
-    line-height: 1.25;
-    color: #2d2d2d;
-    transition: color 0.1s ease-in-out;
-  }
+  .feature-slide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
 
-  &:hover {
-    h1 {
-      color: #bababa;
+    .feature-slide-title {
+      font-size: 6vw;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-family: 'Fugaz One', cursive;
+    }
+    .feature-slide-description {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      line-height: 1.3;
     }
   }
 
-  .title-item {
-    cursor: pointer;
-    &:hover {
-      h1 {
-        color: #2d2d2d;
+  .feature-slides-right {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0;
+      transition: all 1s ease-in-out;
+      transform: scale(1.3);
+      position: absolute;
+      top: 0;
+      &.as-primary {
+        opacity: 1;
+        transform: scale(1.1);
       }
     }
   }
 }
+.footer {
+  margin-top: 100px;
+  height: 70vh;
+  background-color: #285ede;
 
-.image-container {
-  position: fixed;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: -6.597vw;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  top: 0;
+  align-items: flex-end;
+  padding: 100px;
 
-  img {
-    position: absolute;
-    height: 60vh;
-    width: auto;
-    transition: transform 0.1s ease-in-out;
-    filter: grayscale(1);
-    z-index: 98;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04),
-      0 4px 8px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.04),
-      0 16px 32px rgba(0, 0, 0, 0.04), 0 32px 64px rgba(0, 0, 0, 0.04);
-
-    &.active {
-      z-index: 99;
-    }
-  }
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
 }
