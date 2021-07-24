@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 import { videos, photos } from '../../data';
 
 function VideoElement({ src }) {
@@ -29,6 +29,24 @@ const HeroCollage = () => {
   const leftImages = photos.slice(0, 2);
   const rightImages = photos.slice(2, photos.length);
   const [leftVideo, rightVideo] = videos;
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      delay: 0.5,
+    });
+
+    tl.fromTo(
+      '.hero-element',
+      { y: 300 },
+      {
+        duration: 1,
+        y: 0,
+        delay: function (i) {
+          return 0.2 * 1;
+        },
+      }
+    );
+  });
 
   return (
     <div className="hero-collage">

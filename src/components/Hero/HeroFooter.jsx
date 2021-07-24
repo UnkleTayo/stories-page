@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
-const HeroFooter = () => {
+export default function HeroFooter() {
+  const phoneRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: phoneRef.current,
+        start: 'top center',
+        scrub: true,
+      },
+    });
+    tl.to(
+      '.hero-container',
+      {
+        backgroundColor: 'white', // camelCase
+        duration: 0.25, // seconds
+      },
+      '-=2'
+    );
+  }, []);
   return (
-    <div className="hero-text-section">
+    <div ref={phoneRef} className="hero-text-section">
       <h1>Visual stories that feel like yours, because they are.</h1>
     </div>
   );
-};
-
-export default HeroFooter;
+}
