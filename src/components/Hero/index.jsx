@@ -5,6 +5,8 @@ import HeroHeader from './HeroHeader';
 import HeroPhoneBlock from './HeroPhoneBlock';
 import HeroUsedBy from './HeroUsedBy';
 
+import './style.scss';
+
 const Hero = () => {
   return (
     <div className="hero-container">

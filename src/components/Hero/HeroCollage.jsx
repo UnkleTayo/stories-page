@@ -17,7 +17,6 @@ function VideoElement({ src }) {
     </div>
   );
 }
-
 function ImageElement({ src }) {
   return (
     <div className="hero-element">
@@ -25,10 +24,10 @@ function ImageElement({ src }) {
     </div>
   );
 }
+
 const HeroCollage = () => {
   const leftImages = photos.slice(0, 2);
   const rightImages = photos.slice(2, photos.length);
-
   const [leftVideo, rightVideo] = videos;
 
   return (
